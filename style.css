@@ -1,0 +1,974 @@
+/* Общие стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #b30000;
+  --secondary: #1a1a1a;
+  --accent: #ffcc00;
+  --text: #ffffff;
+  --text-secondary: #cccccc;
+  --bg-dark: #0d0d0d;
+  --bg-card: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary);
+}
+
+/* Навигация */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(13, 13, 13, 0.9);
+  z-index: 1000;
+  padding: 15px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-logo a {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  margin-left: 30px;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Главный экран */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(13, 13, 13, 0.9) 0%,
+    rgba(13, 13, 13, 0.7) 50%,
+    rgba(13, 13, 13, 0.3) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.hero-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: var(--text-secondary);
+  animation: fadeInUp 1s ease 0.3s both;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: var(--primary);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+.cta-button:hover {
+  background-color: #990000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(179, 0, 0, 0.3);
+}
+
+.hero-car {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60%;
+  z-index: 1;
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+  animation: carDriveIn 1.5s ease-out;
+}
+
+/* О нас */
+.about {
+  padding: 100px 0;
+  background-color: var(--secondary);
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.stat-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.about-image {
+  flex: 1;
+  position: relative;
+}
+
+.family-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease;
+}
+
+.family-photo:hover {
+  transform: scale(1.03);
+}
+
+/* Наши машины */
+.cars {
+  padding: 100px 0;
+  background-color: var(--bg-dark);
+}
+
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.car-card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.car-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+.car-image-container {
+  height: 200px;
+  overflow: hidden;
+}
+
+.car-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.car-card:hover .car-photo {
+  transform: scale(1.1);
+}
+
+.car-info {
+  padding: 20px;
+}
+
+.car-info h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.car-info p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Семья */
+.family {
+  padding: 100px 0;
+  background-color: var(--secondary);
+}
+
+.family-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.member-card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-10px);
+}
+
+.member-photo-container {
+  height: 300px;
+  overflow: hidden;
+}
+
+.member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.member-card:hover .member-photo {
+  transform: scale(1.1);
+}
+
+.member-info {
+  padding: 20px;
+}
+
+.member-info h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.member-info p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Контакты */
+.contact {
+  padding: 100px 0;
+  background-color: var(--bg-dark);
+}
+
+.contact-content {
+  display: flex;
+  gap: 50px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.contact-info p {
+  margin-bottom: 30px;
+  color: var(--text-secondary);
+}
+
+.contact-details {
+  margin-top: 30px;
+}
+
+.contact-item {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-item strong {
+  min-width: 80px;
+  color: var(--accent);
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: var(--bg-card);
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: var(--text);
+  font-family: "Roboto", sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.submit-btn {
+  padding: 12px 30px;
+  background-color: var(--primary);
+  color: var(--text);
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #990000;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(179, 0, 0, 0.3);
+}
+
+/* Футер */
+.footer {
+  background-color: var(--secondary);
+  padding: 50px 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.footer-logo a {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.footer-text p {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-card);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes carDriveIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px) translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: var(--bg-dark);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    margin: 15px 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .hero-car {
+    width: 80%;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .hero-car {
+    width: 100%;
+    opacity: 0.5;
+  }
+}
+/* Стили для секции обратной связи */
+.feedback {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 100%);
+  padding: 80px 0;
+  color: white;
+}
+
+.feedback-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.feedback-form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feedback-form h3 {
+  color: #ff2e2e;
+  margin-bottom: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+.feedback-display h3 {
+  color: #ff2e2e;
+  margin-bottom: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+}
+
+.form-group select option {
+  background: #1a1a1a;
+  color: white;
+}
+
+.rating-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.rating-stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.rating-stars input {
+  display: none;
+}
+
+.rating-stars label {
+  font-size: 24px;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input:checked ~ label {
+  color: #ff2e2e;
+}
+
+/* Стили для отображения отзывов */
+.feedback-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.feedback-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-left: 3px solid #ff2e2e;
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.feedback-author {
+  font-weight: bold;
+  color: #ff2e2e;
+}
+
+.feedback-rating {
+  color: #ffd700;
+  font-size: 18px;
+}
+
+.feedback-text {
+  color: #ccc;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.feedback-date {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .feedback-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .feedback-form {
+    padding: 20px;
+  }
+}
+/* Стили для статуса отправки */
+.contact-status {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  display: none;
+}
+
+.contact-status.success {
+  background: rgba(76, 175, 80, 0.2);
+  border: 1px solid #4caf50;
+  color: #4caf50;
+  display: block;
+}
+
+.contact-status.error {
+  background: rgba(244, 67, 54, 0.2);
+  border: 1px solid #f44336;
+  color: #f44336;
+  display: block;
+}
+
+.contact-status.loading {
+  background: rgba(33, 150, 243, 0.2);
+  border: 1px solid #2196f3;
+  color: #2196f3;
+  display: block;
+}
+
+/* Стили для кнопки загрузки */
+.submit-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-loading {
+  display: none;
+}
+
+.submit-btn.loading .btn-text {
+  display: none;
+}
+
+.submit-btn.loading .btn-loading {
+  display: inline-block;
+}
+
+/* Анимация загрузки */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Стили для секции обратной связи */
+.feedback {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 100%);
+  padding: 80px 0;
+  color: white;
+}
+
+.feedback-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.feedback-form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feedback-form h3 {
+  color: #ff2e2e;
+  margin-bottom: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+.feedback-display h3 {
+  color: #ff2e2e;
+  margin-bottom: 20px;
+  font-family: "Oswald", sans-serif;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+}
+
+.form-group select option {
+  background: #1a1a1a;
+  color: white;
+}
+
+.rating-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+.rating-stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.rating-stars input {
+  display: none;
+}
+
+.rating-stars label {
+  font-size: 24px;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input:checked ~ label {
+  color: #ff2e2e;
+}
+
+/* Стили для отображения отзывов */
+.feedback-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.feedback-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-left: 3px solid #ff2e2e;
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.feedback-author {
+  font-weight: bold;
+  color: #ff2e2e;
+}
+
+.feedback-rating {
+  color: #ffd700;
+  font-size: 18px;
+}
+
+.feedback-text {
+  color: #ccc;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.feedback-date {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .feedback-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .feedback-form {
+    padding: 20px;
+  }
+}
